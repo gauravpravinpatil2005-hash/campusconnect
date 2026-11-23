@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Successful</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>Registration Successful!</h1>
+    <p class="success">You are registered for <strong><%= registration.workshop %></strong>.</p>
+    <table>
+      <tr><th>Name</th><td><%= registration.name %></td></tr>
+      <tr><th>Email</th><td><%= registration.email %></td></tr>
+      <tr><th>Phone</th><td><%= registration.phone %></td></tr>
+      <tr><th>PRN</th><td><%= registration.prn %></td></tr>
+      <tr><th>Year</th><td><%= registration.year %></td></tr>
+      <tr><th>Department</th><td><%= registration.department %></td></tr>
+      <tr><th>Workshop</th><td><%= registration.workshop %></td></tr>
+      <tr><th>Date</th><td><%= registration.date %></td></tr>
+      <tr><th>Comments</th><td><%= registration.comments || '-' %></td></tr>
+    </table>
+    <a class="btn" href="/">Register Another Student</a>
+  </main>
+</body>
+</html>

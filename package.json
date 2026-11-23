@@ -1,0 +1,15 @@
+{
+  "name": "campusconnect-express",
+  "version": "1.0.0",
+  "description": "CampusConnect - Workshop Registration System demonstrating server-side validation using ExpressJS",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "node tests/validator.test.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}

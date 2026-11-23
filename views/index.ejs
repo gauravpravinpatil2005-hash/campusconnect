@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect - Workshop Registration</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="card">
+    <h1>CampusConnect</h1>
+    <p class="sub">Workshop Registration System</p>
+
+    <% if (Object.keys(errors).length) { %>
+      <div class="alert">Please fix the <%= Object.keys(errors).length %> error(s) below and submit again.</div>
+    <% } %>
+
+    <form method="POST" action="/register" novalidate>
+      <label>Full Name
+        <input type="text" name="name" value="<%= formData.name || '' %>">
+        <% if (errors.name) { %><p class="error"><%= errors.name %></p><% } %>
+      </label>
+
+      <label>Email
+        <input type="text" name="email" value="<%= formData.email || '' %>">
+        <% if (errors.email) { %><p class="error"><%= errors.email %></p><% } %>
+      </label>
+
+      <div class="row">
+        <label>Phone
+          <input type="text" name="phone" value="<%= formData.phone || '' %>">
+          <% if (errors.phone) { %><p class="error"><%= errors.phone %></p><% } %>
+        </label>
+        <label>PRN
+          <input type="text" name="prn" value="<%= formData.prn || '' %>">
+          <% if (errors.prn) { %><p class="error"><%= errors.prn %></p><% } %>
+        </label>
+      </div>
+
+      <div class="row">
+        <label>Year (1-4)
+          <input type="text" name="year" value="<%= formData.year || '' %>">
+          <% if (errors.year) { %><p class="error"><%= errors.year %></p><% } %>
+        </label>
+        <label>Department
+          <select name="department">
+            <option value="">-- Select --</option>
+            <% departments.forEach(d => { %>
+              <option value="<%= d %>" <%= formData.department === d ? 'selected' : '' %>><%= d %></option>
+            <% }) %>
+          </select>
+          <% if (errors.department) { %><p class="error"><%= errors.department %></p><% } %>
+        </label>
+      </div>
+
+      <div class="row">
+        <label>Workshop
+          <select name="workshop">
+            <option value="">-- Select --</option>
+            <% workshops.forEach(w => { %>
+              <option value="<%= w %>" <%= formData.workshop === w ? 'selected' : '' %>><%= w %></option>
+            <% }) %>
+          </select>
+          <% if (errors.workshop) { %><p class="error"><%= errors.workshop %></p><% } %>
+        </label>
+        <label>Date
+          <input type="date" name="date" value="<%= formData.date || '' %>">
+          <% if (errors.date) { %><p class="error"><%= errors.date %></p><% } %>
+        </label>
+      </div>
+
+      <label>Comments (optional, max 300)
+        <textarea name="comments" rows="3"><%= formData.comments || '' %></textarea>
+        <% if (errors.comments) { %><p class="error"><%= errors.comments %></p><% } %>
+      </label>
+
+      <button type="submit">Register</button>
+    </form>
+  </main>
+</body>
+</html>
